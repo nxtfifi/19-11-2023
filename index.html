@@ -910,6 +910,246 @@
             text-align: center;
             font-style: italic;
         }
+        /* ==================== RAMO DE TULIPANES ANIMADO ==================== */
+.tulip-bouquet {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    min-height: 300px;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.tulip {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: growTulip 1s ease-out forwards;
+}
+
+.tulip-1 { animation-delay: 0.3s; }
+.tulip-2 { animation-delay: 0.6s; }
+.tulip-3 { animation-delay: 0.9s; }
+.tulip-4 { animation-delay: 1.2s; }
+.tulip-5 { animation-delay: 1.5s; }
+
+@keyframes growTulip {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.5);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Tallo */
+.stem {
+    width: 4px;
+    height: 120px;
+    background: linear-gradient(to bottom, #4a7c4e, #2d5a2f);
+    border-radius: 2px;
+    position: relative;
+    animation: growStem 0.8s ease-out forwards;
+    transform-origin: bottom;
+}
+
+@keyframes growStem {
+    from {
+        height: 0;
+    }
+    to {
+        height: 120px;
+    }
+}
+
+/* Hojas */
+.leaf {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(135deg, #5c9960, #3d7542);
+    border-radius: 50% 0;
+    transform-origin: bottom right;
+}
+
+.leaf-left {
+    left: -15px;
+    top: 40px;
+    transform: rotate(-30deg);
+    animation: growLeaf 0.6s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.leaf-right {
+    right: -15px;
+    top: 60px;
+    transform: rotate(30deg) scaleX(-1);
+    animation: growLeaf 0.6s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+@keyframes growLeaf {
+    from {
+        opacity: 0;
+        transform: rotate(0deg) scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-30deg) scale(1);
+    }
+}
+
+/* Flor (tulipán) */
+.flower {
+    position: relative;
+    width: 50px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Pétalos */
+.petal {
+    position: absolute;
+    width: 25px;
+    height: 40px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: center bottom;
+    animation: openPetal 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.petal-1 {
+    transform: rotate(0deg) translateY(-15px);
+    z-index: 4;
+    animation-delay: 0.2s;
+}
+
+.petal-2 {
+    transform: rotate(90deg) translateY(-15px);
+    z-index: 3;
+    animation-delay: 0.3s;
+}
+
+.petal-3 {
+    transform: rotate(180deg) translateY(-15px);
+    z-index: 2;
+    animation-delay: 0.4s;
+}
+
+.petal-4 {
+    transform: rotate(270deg) translateY(-15px);
+    z-index: 3;
+    animation-delay: 0.5s;
+}
+
+@keyframes openPetal {
+    from {
+        opacity: 0;
+        transform: rotate(var(--rotation, 0deg)) translateY(-15px) scale(0.3);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(var(--rotation, 0deg)) translateY(-15px) scale(1);
+    }
+}
+
+/* Centro de la flor */
+.center {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #ffd700, #ffaa00);
+    border-radius: 50%;
+    z-index: 5;
+    animation: showCenter 0.5s ease-out 0.7s forwards;
+    opacity: 0;
+}
+
+@keyframes showCenter {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Colores de tulipanes */
+.pink .petal {
+    background: linear-gradient(135deg, #ffc0cb, #ff69b4);
+    box-shadow: inset -2px -2px 5px rgba(255, 105, 180, 0.4);
+}
+
+.red .petal {
+    background: linear-gradient(135deg, #ff4757, #c23616);
+    box-shadow: inset -2px -2px 5px rgba(194, 54, 22, 0.4);
+}
+
+.light-pink .petal {
+    background: linear-gradient(135deg, #ffe5ec, #ffb3c1);
+    box-shadow: inset -2px -2px 5px rgba(255, 179, 193, 0.4);
+}
+
+.dark-red .petal {
+    background: linear-gradient(135deg, #8b0000, #600000);
+    box-shadow: inset -2px -2px 5px rgba(96, 0, 0, 0.4);
+}
+
+.bouquet-message {
+    text-align: center;
+    color: var(--color-text);
+    font-size: 1.15rem;
+    font-style: italic;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive tulipanes */
+@media (max-width: 768px) {
+    .tulip-bouquet {
+        gap: 0.5rem;
+        min-height: 250px;
+    }
+    
+    .stem {
+        height: 100px;
+    }
+    
+    .flower {
+        width: 40px;
+        height: 50px;
+    }
+    
+    .petal {
+        width: 20px;
+        height: 35px;
+    }
+}
 
         /* ==================== FINAL QUESTION SECTION ==================== */
         .question-section {
@@ -1430,20 +1670,84 @@
                 </div>
             </div>
 
-            <!-- Sobre abierto con mensaje -->
-            <div class="envelope-opened" id="envelopeOpened">
-                <div class="secret-letter">
-                    <h3 class="secret-message-title">Mi Mensaje Secreto</h3>
-                    <p class="secret-message-text">
-                        Desde aquel 19 de noviembre bajo las estrellas, supe que eras la persona 
-                        con quien quería compartir todos mis amaneceres y atardeceres. 
-                        Cada día contigo es un regalo que no doy por sentado. 
-                        Te amo más de lo que las palabras pueden expresar, 
-                        y cada latido de mi corazón te lo susurra. 
-                        Eres mi hogar, mi paz, mi todo. ❤️
-                    </p>
+           <!-- Sobre abierto con ramo de tulipanes -->
+<div class="envelope-opened" id="envelopeOpened">
+    <div class="secret-letter">
+        <h3 class="secret-message-title">Para ti ❤️</h3>
+        <div class="tulip-bouquet" id="tulipBouquet">
+            <!-- Tulipán 1 - Rosa -->
+            <div class="tulip tulip-1">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="flower pink">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
                 </div>
             </div>
+
+            <!-- Tulipán 2 - Rojo -->
+            <div class="tulip tulip-2">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="flower red">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+
+            <!-- Tulipán 3 - Rosa claro -->
+            <div class="tulip tulip-3">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="flower light-pink">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+
+            <!-- Tulipán 4 - Rojo oscuro -->
+            <div class="tulip tulip-4">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="flower dark-red">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+
+            <!-- Tulipán 5 - Rosa -->
+            <div class="tulip tulip-5">
+                <div class="stem"></div>
+                <div class="leaf leaf-left"></div>
+                <div class="leaf leaf-right"></div>
+                <div class="flower pink">
+                    <div class="petal petal-1"></div>
+                    <div class="petal petal-2"></div>
+                    <div class="petal petal-3"></div>
+                    <div class="petal petal-4"></div>
+                    <div class="center"></div>
+                </div>
+            </div>
+        </div>
+        <p class="bouquet-message">Un ramo de tulipanes para ti 🌷</p>
+    </div>
+</div>
         </div>
     </section>
 

@@ -60,10 +60,7 @@
             }
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
+        
 
         .fade-in {
             opacity: 0;
@@ -76,61 +73,7 @@
             transform: translateY(0);
         }
 
-        /* ==================== CIELO ESTRELLADO ==================== */
-        .starry-sky {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #0a0e27 0%, #1a1f3a 50%, #2d1b3d 100%);
-            z-index: 0;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            animation: twinkle 3s infinite;
-        }
-
-        .star.small {
-            width: 1px;
-            height: 1px;
-        }
-
-        .star.medium {
-            width: 2px;
-            height: 2px;
-        }
-
-        .star.large {
-            width: 3px;
-            height: 3px;
-            box-shadow: 0 0 4px rgba(255,255,255,0.8);
-        }
-
-        /* ==================== PARTÍCULAS DECORATIVAS ==================== */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--color-primary);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: float 6s infinite ease-in-out;
-        }
+        
 
         /* ==================== HERO SECTION ==================== */
         .hero {
@@ -1089,8 +1032,6 @@
     </style>
 </head>
 <body>
-    <!-- Cielo estrellado del 19 de noviembre de 2023 -->
-    <div class="starry-sky" id="starrySky"></div>
 
     <!-- Partículas decorativas -->
     <div class="particles" id="particles"></div>
@@ -1128,58 +1069,6 @@
             <span></span>
         </div>
     </section>
-
-    <!-- ==================== GALERÍA POLAROID (OPCIONAL) ==================== -->
-    <!-- ⬇️ PUEDES BORRAR TODA ESTA SECCIÓN SI NO LA QUIERES ⬇️ -->
-    <section class="polaroid-section fade-in">
-        <h2 class="section-title">Momentos Capturados</h2>
-        
-        <div class="polaroid-gallery">
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <!-- Agregar src="ruta/foto1.jpg" y quitar style="display: none" -->
-                    <img src="" alt="Polaroid 1" style="display: none;">
-                </div>
-                <div class="polaroid-caption">El primer momento</div>
-            </div>
-
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <img src="" alt="Polaroid 2" style="display: none;">
-                </div>
-                <div class="polaroid-caption">Una sonrisa inesperada</div>
-            </div>
-
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <img src="" alt="Polaroid 3" style="display: none;">
-                </div>
-                <div class="polaroid-caption">Nuestro lugar favorito</div>
-            </div>
-
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <img src="" alt="Polaroid 4" style="display: none;">
-                </div>
-                <div class="polaroid-caption">Un atardecer contigo</div>
-            </div>
-
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <img src="" alt="Polaroid 5" style="display: none;">
-                </div>
-                <div class="polaroid-caption">Risas y complicidad</div>
-            </div>
-
-            <div class="polaroid fade-in">
-                <div class="polaroid-image">
-                    <img src="" alt="Polaroid 6" style="display: none;">
-                </div>
-                <div class="polaroid-caption">Simplemente nosotros</div>
-            </div>
-        </div>
-    </section>
-    <!-- ⬆️ FIN SECCIÓN POLAROID - BORRAR HASTA AQUÍ ⬆️ -->
 
     <!-- ==================== TIMELINE SECTION ==================== -->
     <section class="timeline-section fade-in">
@@ -1304,43 +1193,6 @@
         </div>
     </section>
     <!-- ⬆️ FIN SECCIÓN PROMESAS - BORRAR HASTA AQUÍ ⬆️ -->
-
-    <!-- ==================== MAPA DE LUGARES ESPECIALES ==================== -->
-    <section class="map-section fade-in">
-        <h2 class="section-title">Nuestros Lugares Especiales</h2>
-        
-        <div class="map-container">
-            <!-- Lugar 1 -->
-            <div class="map-location fade-in">
-                <span class="location-icon">📍</span>
-                <h3 class="location-name">Donde Nos Conocimos</h3>
-                <p class="location-description">El lugar donde todo comenzó, donde nuestras miradas se cruzaron por primera vez y algo dentro de mí supo que eras especial.</p>
-                <div class="location-image">
-                    <img src="" alt="Lugar 1" style="display: none;">
-                </div>
-            </div>
-
-            <!-- Lugar 2 -->
-            <div class="map-location fade-in">
-                <span class="location-icon">🌅</span>
-                <h3 class="location-name">Nuestro Primer Beso</h3>
-                <p class="location-description">19 de noviembre de 2023. El momento que quedó grabado en las estrellas y en mi corazón para siempre.</p>
-                <div class="location-image">
-                    <img src="" alt="Lugar 2" style="display: none;">
-                </div>
-            </div>
-
-            <!-- Lugar 3 -->
-            <div class="map-location fade-in">
-                <span class="location-icon">☕</span>
-                <h3 class="location-name">Nuestro Refugio</h3>
-                <p class="location-description">El lugar al que siempre volvemos, donde las conversaciones fluyen y el tiempo se detiene.</p>
-                <div class="location-image">
-                    <img src="" alt="Lugar 3" style="display: none;">
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ==================== REASONS SECTION ==================== -->
     <section class="reasons-section fade-in">
@@ -1470,44 +1322,7 @@
     <div class="hearts-animation" id="heartsContainer"></div>
 
     <script>
-        // ==================== CIELO ESTRELLADO DEL 19 DE NOVIEMBRE 2023 ====================
-        function createStarrySky() {
-            const sky = document.getElementById('starrySky');
-            const starCount = 200;
-
-            // Configuración de constelaciones visibles en noviembre
-            const constellations = [
-                { x: 20, y: 15, stars: 7 }, // Aries
-                { x: 40, y: 25, stars: 8 }, // Taurus
-                { x: 60, y: 30, stars: 9 }, // Orion
-                { x: 80, y: 20, stars: 6 }, // Gemini
-            ];
-
-            // Crear estrellas de fondo
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = `star ${['small', 'medium', 'large'][Math.floor(Math.random() * 3)]}`;
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                sky.appendChild(star);
-            }
-
-            // Agregar estrellas de constelaciones
-            constellations.forEach(constellation => {
-                for (let i = 0; i < constellation.stars; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star large';
-                    star.style.left = (constellation.x + (Math.random() * 10 - 5)) + '%';
-                    star.style.top = (constellation.y + (Math.random() * 10 - 5)) + '%';
-                    star.style.animationDelay = Math.random() * 3 + 's';
-                    sky.appendChild(star);
-                }
-            });
-        }
-
-        createStarrySky();
+        
 
         // ==================== CONTADOR DE TIEMPO EN VIVO ====================
         function updateCounter() {
